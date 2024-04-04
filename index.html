@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electronic Business Card</title>
+<style>
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+}
+.card {
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border: 1px solid #272727;
+    border-radius: 5px;
+}
+a {
+    color: #bb86fc;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+.button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #bb86fc;
+    color: #121212;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: #9a67ea;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h2>The<br>Deconstructed Woman</h2>
+  <img src="rosie.jpg" alt="The Deconstructed Woman Logo", width="150" height="150">
+  <p>Podcaster & Influencer</p>
+  <p>Email: jane.doe@example.com</p>
+  <p>Phone: +1234567890</p>
+  <a href="https://www.facebook.com/yourprofile" target="_blank">Facebook</a>
+  <a href="https://open.spotify.com/yourpodcast" target="_blank">Spotify Podcast</a>
+  <a href="https://www.tiktok.com/@youraccount" target="_blank">TikTok</a>
+  <button class="button" onclick="downloadVCF()">Save Contact</button>
+</div>
+
+<script>
+function downloadVCF() {
+  const vCardData = [
+    'BEGIN:VCARD',
+    'VERSION:3.0',
+    'FN:The Deconstructed Woman',
+    'ORG:Podcaster & Influencer',
+    'TEL;TYPE=WORK,VOICE:+1234567890',
+    'EMAIL;TYPE=PREF,INTERNET:jane.doe@example.com',
+    'URL;TYPE=FACEBOOK:https://www.facebook.com/yourprofile',
+    'URL;TYPE=SPOTIFY:https://open.spotify.com/yourpodcast',
+    'URL;TYPE=TIKTOK:https://www.tiktok.com/@youraccount',
+    'END:VCARD'
+  ].join('\n');
+
+  const blob = new Blob([vCardData], { type: 'text/vcard' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'TheDeconstructedWoman.vcf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+</script>
+
+</body>
+</html>
