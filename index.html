@@ -39,19 +39,31 @@ a:hover {
 .button:hover {
     background-color: #9a67ea;
 }
+.header {
+    display: flex;
+    align-items: center; /* if you want to align the items vertically */
+    justify-content: space-between; /* if you want to put some space between the items */
+}
 </style>
 </head>
 <body>
 
 <div class="card">
-  <h2>The<br>Deconstructed Woman</h2>
-  <img src="rosie.jpg" alt="The Deconstructed Woman Logo", width="150" height="150">
-  <p>Podcaster & Influencer</p>
+  <div class="header">
+    <h3>The Deconstructed Woman</h3>
+    <!-- <img src="rosie.jpg" alt="The Deconstructed Woman Logo", width="100" height="100"> -->
+  </div>
+  <div class="card">
+    <div class="header">
+      <img src="jojy.png", alt="Jojy Schless" width="75" height="75">
+      <h5>Jojy Schless<br>Podcaster & Influencer</h5>
+    </div>
+  </div>
   <p>Email: jane.doe@example.com</p>
   <p>Phone: +1234567890</p>
-  <a href="https://www.facebook.com/yourprofile" target="_blank">Facebook</a>
-  <a href="https://open.spotify.com/yourpodcast" target="_blank">Spotify Podcast</a>
-  <a href="https://www.tiktok.com/@youraccount" target="_blank">TikTok</a>
+  <a href="https://www.facebook.com/yourprofile" target="_blank">Facebook</a><br>
+  <a href="https://open.spotify.com/yourpodcast" target="_blank">Spotify Podcast</a><br>
+  <a href="https://www.tiktok.com/@youraccount" target="_blank">TikTok</a><br>
   <button class="button" onclick="downloadVCF()">Save Contact</button>
 </div>
 
